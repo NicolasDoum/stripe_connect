@@ -96,8 +96,13 @@ async function handleReturnUrl(accountId) {
   }
 }
 
-// Execute the function
-createPartnerAccount();
+// Only execute if this file is run directly (not imported)
+if (require.main === module) {
+  createPartnerAccount().catch(error => {
+    console.error('Failed to create partner account:', error.message);
+    process.exit(1);
+  });
+}
 
 module.exports = {
   createPartnerAccount,

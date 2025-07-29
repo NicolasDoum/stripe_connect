@@ -16,7 +16,11 @@ const accountSessions = new Map();
 
 // Root endpoint
 app.get('/', (req, res) => {
-  res.send('Stripe Partner Onboarding Server');
+  res.send(`
+    <h1>Stripe Partner Onboarding Server</h1>
+    <p>This server handles redirect URLs for Stripe Connect onboarding.</p>
+    <p>To create a new partner account, run the script locally.</p>
+  `);
 });
 
 // Refresh URL endpoint - handles expired or invalid account links
